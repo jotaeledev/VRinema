@@ -1,0 +1,260 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.app {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.app .loading-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+}
+
+.app .loading-screen img {
+  display: block;
+}
+
+.app .loading-screen .loader {
+  display: block;
+  margin-top: 30px;
+  font-size: 25px;
+  color: #004fff;
+  text-transform: uppercase;
+}
+
+.app .scene {
+  height: 100%;
+}
+
+.app .scene .actual-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 50px;
+  width: 250px;
+  background: #004fff;
+  color: white;
+  z-index: 1;
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.app .sidebar {
+  width: 30%;
+  min-width: 300px;
+  max-width: 450px;
+  padding: 10px;
+}
+
+.app .sidebar .logo {
+  margin: 0 auto;
+  display: block;
+  width: 217px;
+  margin-bottom: 50px;
+}
+
+.app .sidebar .seats-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.app .sidebar .seats-wrapper__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+  margin: 5px 0;
+}
+
+.app .sidebar .screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  height: 30px;
+  width: 100%;
+  background-color: #63747e;
+  margin-bottom: 30px;
+}
+
+.app .sidebar .seat {
+  position: relative;
+  cursor: pointer;
+}
+
+.app .sidebar .seat.selected .seat-icon {
+  fill: #f5cc53;
+}
+
+.app .sidebar .seat.selected .seat-icon:hover {
+  fill: #f5cc53;
+}
+
+.app .sidebar .seat.selected .seat-icon-selected {
+  display: block;
+}
+
+.app .sidebar .seat.sit .seat-icon,
+.app .sidebar .seat .sit:hover .seat-icon {
+  fill: #bd9623;
+}
+
+.app .sidebar .seat.sit .seat-icon:hover,
+.app .sidebar .seat .sit:hover .seat-icon:hover {
+  fill: #bd9623;
+}
+
+.app .sidebar .seat .seat-icon {
+  width: 20px;
+  margin: 0px 3px;
+  fill: #63747e;
+}
+
+.app .sidebar .seat .seat-icon:hover {
+  fill: #474646;
+}
+
+.app .sidebar .seat .seat-icon-selected {
+  width: 16px;
+  fill: #1c658f;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.app .container-tickets {
+  display: none;
+}
+
+.app .container-tickets__title {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.app .container-tickets__list {
+  list-style: none;
+}
+
+.app .container-tickets__list__item {
+  font-size: 17px;
+  margin: 10px 0px;
+}
+
+.app .container-tickets__list__item--total {
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.app .container-buttons {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app .container-buttons button {
+  font-family: "Roboto", sans-serif;
+  border: 0px;
+  background-color: #004fff;
+  font-weight: bold;
+  color: white;
+  width: 150px;
+  height: 45px;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.app .container-buttons button .fa {
+  font-size: 18px;
+}
+
+.app .container-buttons #unselectButton {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .app {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .app .sidebar {
+    height: 60%;
+    width: 90%;
+    max-width: 100%;
+    padding-bottom: 10px;
+  }
+  .app .sidebar .container-buttons {
+    padding-bottom: 10px;
+  }
+  .app .sidebar .container-buttons button {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <script src="public/js/index.js"></script>
+      <div class="loading-screen">
+        <img src="public/img/logo.png" alt="logo">
+        <span class="loader">
+          Loading
+        </span>
+      </div>
+      <a-scene vr-mode-ui="enabled: false" class="scene" id="scene" renderer="physicallyCorrectLights: true;" embedded>
+        <div id="actualLocation" class="actual-location"></div>
+        <a-entity id="camera" camera look-controls  position="8 -4.9 9.8" ></a-entity>
+        <a-entity scale="1 1 1"
+            animation-mixer
+            position="0 -10 0"
+            gltf-model="src: url(public/model/cinema.glb);">
+        </a-entity>
+        <a-sky color="black"></a-sky>
+      </a-scene>
+      <div class="sidebar">
+        <img class="logo" src="public/img/logo.png" alt="logo">
+        <div id="seatsWrapper" class="seats-wrapper">
+          <div class="screen">
+            <span>SCREEN</span>
+          </div>
+        </div>
+        <div class="container-buttons">
+          <button onclick="selectSeat()" id="selectButton"><i class="fa fa-check"></i> select seat</button>
+          <button onclick="unselectSeat()" id="unselectButton"><i class="fa fa-close"></i> unselect seat</button>
+        </div>
+        <div id="containerTickets" class="container-tickets">
+          <h3 class="container-tickets__title">selected tickets</h3>
+          <ul id="tickets-list" class="container-tickets__list">
+
+          </ul>
+          <div class="container-buttons">
+            <button onClick="finish()">Pay</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </body>
+</html>

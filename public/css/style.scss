@@ -1,0 +1,191 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+.app {
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  .loading-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: absolute;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+
+    img {
+      display: block;
+    }
+    .loader {
+      display: block;
+      margin-top: 30px;
+      font-size: 25px;
+      color: #004fff;
+      text-transform: uppercase;
+    }
+  }
+  .scene {
+    height: 100%;
+
+    .actual-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 50px;
+      width: 250px;
+      background: #004fff;
+      color: white;
+      z-index: 1;
+      box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
+    }
+  }
+  .sidebar {
+    width: 30%;
+    min-width: 300px;
+    max-width: 450px;
+    padding: 10px;
+    .logo {
+      margin: 0 auto;
+      display: block;
+      width: 217px;
+      margin-bottom: 50px;
+    }
+    .seats-wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      height: fit-content;
+      &__row {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        width: 50%;
+        margin: 5px 0;
+      }
+    }
+    .screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      height: 30px;
+      width: 100%;
+      background-color: #63747e;
+      margin-bottom: 30px;
+    }
+    .seat {
+      position: relative;
+      cursor: pointer;
+      &.selected {
+        .seat-icon {
+          fill: #f5cc53;
+          &:hover {
+            fill: #f5cc53;
+          }
+        }
+        .seat-icon-selected {
+          display: block;
+        }
+      }
+      &.sit,
+      .sit:hover {
+        .seat-icon {
+          fill: #bd9623;
+          &:hover {
+            fill: #bd9623;
+          }
+        }
+      }
+      .seat-icon {
+        width: 20px;
+        margin: 0px 3px;
+        fill: #63747e;
+        &:hover {
+          fill: rgb(71, 70, 70);
+        }
+      }
+      .seat-icon-selected {
+        width: 16px;
+        fill: #1c658f;
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  .container-tickets {
+    display: none;
+    &__title {
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+    &__list {
+      list-style: none;
+      &__item {
+        font-size: 17px;
+        margin: 10px 0px;
+        &--total {
+          font-weight: bold;
+          margin: 20px 0px;
+        }
+      }
+    }
+  }
+  .container-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      font-family: "Roboto", sans-serif;
+      border: 0px;
+      background-color: #004fff;
+      font-weight: bold;
+      color: white;
+      width: 150px;
+      height: 45px;
+      font-size: 15px;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      .fa {
+        font-size: 18px;
+      }
+    }
+
+    #unselectButton {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+
+    .sidebar {
+      height: 60%;
+      width: 90%;
+      max-width: 100%;
+      padding-bottom: 10px;
+
+      .container-buttons {
+        padding-bottom: 10px;
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 # VRinema
 Virtual reality cinema ticketing software
 
+# Description
 The app gives a list of cinema seats that you can choose from and watch in virtual reality.
 
 The 3d models are made in blender and the aframe.js library is used to develop the web application.

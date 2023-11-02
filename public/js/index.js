@@ -42,15 +42,29 @@ function init(){
 function finishLoading(){
     document.querySelector('.loading-screen').style.display = 'none';
 }
-function createChairs(){
-    SeatList.forEach(seat =>{
-        const chair = document.createElement('a-entity');
-        chair.setAttribute('chair')
-        chair.setAttribute('gltf-model', 'src: url(public/model/seat.glb);')
-        chair.setAttribute('position', seat.position.join(' '))
-        document.querySelector('#scene').appendChild(chair)
-    })
-    getLoadChairs()
+function createChairs() {
+    const loadChair = (seat) => {
+        return new Promise((resolve) => {
+            const chair = document.createElement('a-entity');
+            chair.setAttribute('chair', '');
+            chair.setAttribute('gltf-model', 'src: url(public/model/seat.glb);');
+            chair.setAttribute('position', seat.position.join(' '));
+            chair.addEventListener('model-loaded', () => {
+                resolve();
+            });
+            document.querySelector('#scene').appendChild(chair);
+        });
+    };
+
+    const loadAllChairs = async () => {
+        for (let i = 0; i < SeatList.length; i++) {
+            await loadChair(SeatList[i]);
+        }
+        finishLoading();
+        getLoadChairs(SeatList.length);
+    };
+
+    loadAllChairs();
 }
 function createIconsChairs(){
     let addedChairs = 0
